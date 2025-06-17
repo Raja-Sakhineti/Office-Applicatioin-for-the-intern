@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Application Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 80px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    .gender-group,
+    .language-group {
+      margin-top: 10px;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      color: red;
+      font-size: 13px;
+      margin: 3px 0 0;
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    #welcomePage {
+      display: none;
+      height: 100vh;
+      background: linear-gradient(to right, #4b034d, #0072ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    #welcomePage h1 {
+      color: white;
+      font-size: 3em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="formPage">
+    <h2>Office Application Form</h2>
+    <form onsubmit="return handleSubmit(event)">
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required>
+        <p id="p1"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+        <p id="p2"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required>
+        <p id="p3"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
+      </div>
+
+      <div class="form-group gender-group">
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required> <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female"> <label for="female">Female</label>
+        <input type="radio" id="others" name="gender" value="others"> <label for="others">Others</label>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City:</label>
+        <select id="city" name="city">
+          <option value="">Select</option>
+          <option value="Vizianagaram">Vizianagaram</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
+          <option value="Tirupathi">Tirupathi</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="state">State:</label>
+        <select id="state" name="state">
+          <option value="">Select</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tirupathi">Tirupathi</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pin">Pin Code:</label>
+        <input type="text" id="pin" name="pin">
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <option value="">Select</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="Canada">Canada</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="education">Education:</label>
+        <select id="education" name="education">
+          <option value="">Select</option>
+          <option value="High School">High School</option>
+          <option value="Bachelor">Bachelor</option>
+          <option value="Master">Master</option>
+        </select>
+      </div>
+
+      <div class="form-group language-group">
+        <label>Languages Known:</label>
+        <input type="checkbox" name="language" value="English"> English
+        <input type="checkbox" name="language" value="Hindi"> Hindi
+        <input type="checkbox" name="language" value="Telugu"> Telugu
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="welcomePage" style="display: none;">
+   <pre> <h1>WELCOME TO OUR OFFICE</h1><br>
+    <h1>Welcome for Grand Opening for New Office</h1><br>
+    <h1>We Heartly Welcome to the Gratest person in the World</h1><br>
+  </pre>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent actual form submission
+
+      // Add your validation if needed here
+      const firstName = document.getElementById("firstname").value.trim();
+      const lastName = document.getElementById("lastname").value.trim();
+      const surname = document.getElementById("surname").value.trim();
+
+      const nameRegex = /^[a-zA-Z]+$/;
+
+      if (!nameRegex.test(firstName)) {
+        document.getElementById("p1").innerText = "Enter valid first name";
+        return false;
+      } else {
+        document.getElementById("p1").innerText = "";
+      }
+
+      if (!nameRegex.test(lastName)) {
+        document.getElementById("p2").innerText = "Enter valid last name";
+        return false;
+      } else {
+        document.getElementById("p2").innerText = "";
+      }
+
+      if (!nameRegex.test(surname)) {
+        document.getElementById("p3").innerText = "Enter valid surname";
+        return false;
+      } else {
+        document.getElementById("p3").innerText = "";
+      }
+
+      // Hide form and show welcome screen
+      document.getElementById("formPage").style.display = "none";
+      document.getElementById("welcomePage").style.display = "flex";
+
+      return false;
+    }
+  </script>
+</body>
+</html>
